@@ -25,20 +25,6 @@ main {
     padding: 20px;
 }
 
-#section {
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    max-width: 800px;
-    margin: auto;
-}
-
-#section:hover {
-    transform: translateY(-5px);
-}
 
 footer {
     background-color: #1f2933;
@@ -112,8 +98,38 @@ html {
     scroll-behavior: smooth;
 }
 
+section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 #hero {
     text-align: center;
+    background-color: #f3f4f6;
+    padding: 80px 20px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+}
+
+#about, #projects, #skills, #contact {
+    background-color: white;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #1f2933;
+}
+
+.project-card {
+    background-color: #f9fafb;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .skills-list {
@@ -122,46 +138,6 @@ html {
     gap: 10px;
     list-style: none;
     padding: 0;
-}
-
-.project-card {
-    border-left: 4px solid #1f2933;
-}
-
-.project-card a {
-    display: inline-block;
-    margin-top: 10px;
-    color: #1f2933;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.project-card {
-    padding: 20px;
-    border-radius: 12px;
-    background-color: white;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.project-links {
-    margin-top: 15px;
-    display: flex;
-    gap: 15px;
-}
-
-.project-links a {
-    text-decoration: none;
-    font-weight: bold;
-    color: #1f2933;
 }
 
 .cv-button {
@@ -214,3 +190,73 @@ a {
 a:hover {
     color: #fbbf24; /* yellowish hover color */
 }
+
+#todo-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    margin: 20px auto;
+
+    display: flex;           /* Add this */
+    flex-direction: row;     /* Horizontal layout */
+    gap: 10px;               /* Space between input and button */
+    flex-wrap: wrap;         /* Wrap on smaller screens */
+    align-items: center;
+}
+
+#todo-input {
+    flex: 1;                 /* Take all remaining space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    min-width: 200px;        /* Avoid shrinking too much */
+
+#add-todo {
+    padding: 10px 15px;
+    border: none;
+    background-color: #1f2933;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#add-todo:hover {
+    background-color: #374151;
+}
+
+#todo-list {
+    list-style: none;
+    margin: 20px auto;
+    padding: 0;
+    margin-top: 15px;
+}
+
+#todo-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.todo-done {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.todo-btn {
+    margin-left: 10px;
+    border: none;
+    background: #ef4444;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.todo-btn:hover {
+    background: #dc2626;
+}
+
