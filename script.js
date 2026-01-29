@@ -15,3 +15,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // Add button to the top of main
     document.querySelector("main").prepend(btn);
 });
+
+const toggleBtn = document.getElementById("themeToggle");
+
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+});
+
