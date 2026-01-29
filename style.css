@@ -112,3 +112,34 @@ body.dark footer {
 html {
     scroll-behavior: smooth;
 }
+
+#hero {
+    text-align: center;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    background-color: #e5e7eb;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.project-card {
+    border-left: 4px solid #1f2933;
+}
+
+.project-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #1f2933;
+    font-weight: bold;
+    text-decoration: none;
+}
