@@ -16,82 +16,49 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector("main").prepend(btn);
 });
 
-const toggleBtn = document.getElementById("themeToggle");
+const toggleButton = document.getElementById("darkModeToggle");
 
-toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-});
+// Load saved theme
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    toggleButton.textContent = "☀️";
+}
 
-// Simple animation on load
-document.querySelectorAll("section").forEach(section => {
-    section.style.opacity = 0;
-});
+toggleButton.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
 
-window.addEventListener("load", () => {
-    document.querySelectorAll("section").forEach((section, index) => {
-        setTimeout(() => {
-            section.style.transition = "all 0.6s ease";
-            section.style.opacity = 1;
-            section.style.transform = "translateY(0)";
-        }, index * 150);
-    });
-});
-
-// Function to add task
-document.addEventListener("DOMContentLoaded", () => {
-    // Get elements
-    const todoInput = document.getElementById("todo-input");
-    const addBtn = document.getElementById("add-todo");
-    const todoList = document.getElementById("todo-list");
-
-    // Function to add task
-    function addTask() {
-        const taskText = todoInput.value.trim();
-        if (taskText === "") return;
-
-        // Create list item
-        const li = document.createElement("li");
-
-        // Task text
-        const taskSpan = document.createElement("span");
-        taskSpan.textContent = taskText;
-
-        // Done button
-        const doneBtn = document.createElement("button");
-        doneBtn.textContent = "Done";
-        doneBtn.classList.add("todo-btn");
-        doneBtn.addEventListener("click", () => {
-            taskSpan.classList.toggle("todo-done");
-        });
-
-        // Delete button
-        const delBtn = document.createElement("button");
-        delBtn.textContent = "Delete";
-        delBtn.classList.add("todo-btn");
-        delBtn.addEventListener("click", () => {
-            li.remove();
-        });
-
-        // Append span and buttons to li
-        li.appendChild(taskSpan);
-        li.appendChild(doneBtn);
-        li.appendChild(delBtn);
-
-        // Add li to ul
-        todoList.appendChild(li);
-
-        // Clear input
-        todoInput.value = "";
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        toggleButton.textContent = "☀️";
+    } else {
+        localStorage.setItem("theme", "light");
+        toggleButton.textContent = "🌙";
     }
+});
 
-    // Event listeners
-    addBtn.addEventListener("click", addTask);
 
-    todoInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-            addTask();
+// Active navigation link highlighting (GitHub Pages safe)
+document.addEventListener("DOMContentLoaded", () => {
+    const currentPath = window.location.pathname;
+
+    const navLinks = document.querySelectorAll(".navbar a");
+
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute("href");
+
+        if (currentPath.endsWith(linkPath)) {
+            link.classList.add("active");
+        }
+
+        // Special case: homepage
+        if (
+            (currentPath === "/" || currentPath.endsWith("/index.html")) &&
+            linkPath === "index.html"
+        ) {
+            link.classList.add("active");
         }
     });
 });
+
 
 

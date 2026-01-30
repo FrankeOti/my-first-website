@@ -4,39 +4,29 @@
     <meta charset="UTF-8">
     <title>Frankline's Website</title>
     <link rel="stylesheet" href="style.css">
+   <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-    <h1>Frankline Otieno</h1>
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#goals">Goals</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <button id="themeToggle">🌙</button>
-</header>
+    <nav class="navbar">
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </div>
 
-<main>
+    <button id="darkModeToggle" class="dark-toggle">🌙</button>
+</nav>
+
+
     <section id="hero">
-        <h2>Hi, I’m Frankline Otieno 👋</h2>
+        <h1>Hi, I’m Frankline Otieno 👋</h1>
         <p>
             Computer Science graduate passionate about building clean,
             responsive, and interactive web applications.
         </p>
     </section>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-    I am a Computer Science graduate with a strong interest in web
-    development and software engineering. I enjoy building responsive,
-    user-friendly applications and continuously improving my skills
-    through hands-on projects.
-       </p>
-
-    </section>
 
     <section id="skills">
         <h2>Skills</h2>
@@ -49,91 +39,9 @@
         </ul>
     </section>
 
-   <section id="projects">
-    <h2>Projects</h2>
-
-    <div class="projects-grid">
-
-        <div class="project-card">
-            <h3>Personal Portfolio Website</h3>
-            <p>
-    Designed and developed a responsive personal portfolio using
-    HTML5, CSS3 (Flexbox & Grid), and JavaScript. Implemented
-    interactive UI features and deployed the site using GitHub Pages.
-            </p>
-
-            <div class="project-links">
-                <a href="#" target="_blank">Live Demo</a>
-                <a href="#" target="_blank">GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <h3>To-Do List App</h3>
-            <p>
-    Built a JavaScript-powered to-do list application that allows users
-    to add and remove tasks dynamically, demonstrating DOM manipulation
-    and event handling.
-            </p>
-
-            <div class="project-links">
-                <a href="#" target="_blank">Live Demo</a>
-                <a href="#" target="_blank">GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <h3>Landing Page</h3>
-            <p>
-    Created a clean and responsive landing page using semantic HTML and
-    modern CSS layout techniques, focusing on accessibility and
-    mobile-first design.
-            </p>
-
-            <div class="project-links">
-                <a href="#" target="_blank">Live Demo</a>
-                <a href="#" target="_blank">GitHub</a>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-    <section id="todo-app">
-    <h2>To-Do App Project</h2>
-    <p>
-        A fully interactive to-do list application built with HTML, CSS, and JavaScript,
-        demonstrating dynamic DOM manipulation and task management.
-    </p>
-
-    <div id="todo-container">
-        <input type="text" id="todo-input" placeholder="Add a new task..." />
-        <button id="add-todo">Add Task</button>
-
-        <ul id="todo-list">
-            <!-- Tasks will appear here -->
-        </ul>
-    </div>
-</section>
 
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>
-            Interested in working together or have an opportunity?
-        </p>
-        <p>
-            📧 Email: <a href="mailto:otienofranklineldk@gmail.com">otienofranklineldk@gmail.com</a>
-        </p>
-        <p>
-    🔗
-    <a href="https://github.com/FrankeOti" target="_blank">GitHub</a> |
-    <a href="https://www.linkedin.com/in/frankline-otieno-1486152a8/" target="_blank">LinkedIn</a>
-    </p>
-
-    <a href="cv.pdf" target="_blank" class="cv-button">View CV</a>
-    <a href="cv.pdf" download="Frankline_Otieno_CV" class="cv-button">Download CV</a>
-    </section>
+    
 </main>
 
 

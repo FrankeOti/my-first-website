@@ -1,9 +1,54 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #111827;
+    --nav-bg: #111827;
+    --nav-text: #ffffff;
+    --card-bg: #f9fafb;
+    --accent-color: #fbbf24;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    background-color: var(--nav-bg);
+}
+
+.navbar a {
+    color: var(--nav-text);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+    color:#fbbf24
+}
+
+body.dark-mode {
+    --bg-color: #0f172a;
+    --text-color: #e5e7eb;
+    --nav-bg: #020617;
+    --nav-text: #e5e7eb;
+    --card-bg: #020617;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     background-color: #f4f4f4;
     line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
 }
+
+
+.section,
+.card,
+.project {
+    background-color: var(--card-bg);
+}
+
 
 header {
     background-color: #1f2933;
@@ -15,15 +60,6 @@ header {
     flex-wrap: wrap;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-
-main {
-    padding: 20px;
-}
 
 
 footer {
@@ -33,66 +69,23 @@ footer {
     padding: 10px;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
-}
 
-
-nav ul li {
-    margin: 0 15px;    /* space between links */
-}
-
-nav ul li a {
-    text-decoration: none; /* remove underline */
-    color: white;          /* links white */
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #fbbf24;        /* hover color (yellowish) */
-}
-
-main {
-    display: flex;           /* use Flexbox */
-    gap: 20px;               /* space between sections */
-    flex-wrap: wrap;         /* allow wrapping on small screens */
-    justify-content: center; /* center the sections horizontally */
-}
-
-main section {
-    flex: 1 1 300px;        /* grow, shrink, min width */
-    max-width: 400px;       /* optional max width */
-}
-
-#themeToggle {
+.dark-toggle {
     background: none;
-    border: 1px solid white;
-    color: white;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    font-size: 18px;
     padding: 6px 10px;
-    border-radius: 20px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 14px;
 }
 
-body.dark {
-    background-color: #111827;
-    color: #e5e7eb;
+.dark-toggle:hover {
+    background-color: var(--accent-color);
+    color: #000;
 }
 
-body.dark section {
-    background-color: #1f2933;
-    color: #e5e7eb;
-}
 
-body.dark header,
-body.dark footer {
-    background-color: #020617;
-}
 
 html {
     scroll-behavior: smooth;
@@ -212,6 +205,7 @@ a:hover {
     border: 1px solid #ccc;
     border-radius: 8px;
     min-width: 200px;        /* Avoid shrinking too much */
+}
 
 #add-todo {
     padding: 10px 15px;
