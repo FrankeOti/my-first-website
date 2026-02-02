@@ -37,3 +37,20 @@ const observer = new IntersectionObserver(entries => {
 animatedSections.forEach(section => {
     observer.observe(section);
 });
+
+// About Me card animation
+const aboutCard = document.querySelector('.about-card-animate');
+
+const aboutObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+if (aboutCard) {
+    aboutObserver.observe(aboutCard);
+}

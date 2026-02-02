@@ -11,7 +11,7 @@ body {
 }
 
 h1 {
-    font-size: 2.5rem; /* 40px approx */
+    font-size: 4rem; /* 40px approx */
     font-weight: 700;
     margin-bottom: 16px;
 }
@@ -70,6 +70,56 @@ p {
 .nav-links a:hover {
     color: #fbbf24;
 }
+
+/* ABOUT ME CARD */
+.about-card {
+    background-color: #ffffff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.about-card h2 {
+    margin-bottom: 16px;
+    color: #111827;
+}
+
+.about-card p {
+    color: #4b5563;
+    line-height: 1.7;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    background-color: #fefefe;
+}
+
+.about-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* makes it circular */
+    display: block;
+    margin: 0 auto 16px auto; /* center with margin below */
+    object-fit: cover; /* ensures image fits nicely */
+    border: 3px solid #fbbf24; /* optional highlight border */
+}
+
+/* ABOUT CARD ANIMATION */
+.about-card-animate {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.about-card-animate.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
 
 
 .section {
@@ -291,3 +341,41 @@ section p {
 .footer a:hover {
     text-decoration: underline;
 }
+
+/* Footer social icons */
+.footer i {
+    margin: 0 2px;
+    font-size: 1.1rem;
+    vertical-align: middle;
+    color: #fbbf24;
+    transition: color 0.3s;
+}
+
+.footer i:hover {
+    color: #ffffff;
+}
+
+/* CV DOWNLOAD BUTTONS CONTAINER */
+.cv-buttons {
+    margin-top: 20px;
+    text-align: center; /* center button in card */
+}
+
+/* CV BUTTON */
+.cv-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #111827;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.cv-button:hover {
+    background-color: #fbbf24;
+    color: #000000;
+    transform: translateY(-2px);
+}
+
