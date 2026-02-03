@@ -99,13 +99,18 @@ p {
 }
 
 .about-avatar {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%; /* makes it circular */
     display: block;
-    margin: 0 auto 16px auto; /* center with margin below */
+    margin: 0 auto 20px auto; /* center with margin below */
     object-fit: cover; /* ensures image fits nicely */
-    border: 3px solid #fbbf24; /* optional highlight border */
+    border: 4px solid #fbbf24; /* optional highlight border */
+
+    /* Visual quality improvements */
+    image-rendering: auto;
+    filter: contrast(1.05) saturate(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* ABOUT CARD ANIMATION */
