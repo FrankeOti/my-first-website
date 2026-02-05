@@ -1,5 +1,18 @@
+:root {
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+  --nav-height: 80px;
+}
+
 html {
     scroll-behavior: smooth;
+}
+
+nav {
+  height: var(--nav-height);
 }
 
 body {
@@ -73,45 +86,78 @@ p {
 
 /* ABOUT ME CARD */
 .about-card {
-    background-color: #ffffff;
-    padding: 30px 25px;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  display: grid;
+  grid-template-rows: auto 1fr; /* image on top, text below */
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem 2rem;
+  border-radius: 16px;
+  background-color: var(--footer-bg, #111827); /* same as footer */
+  color: #f9fafb;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  max-width: 500px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .about-card h2 {
-    margin-bottom: 16px;
-    color: #111827;
+    margin-bottom: 8px;
+    color: #e5e7eb;
 }
 
 .about-card p {
-    color: #4b5563;
+    color: #e5e7eb;
     line-height: 1.7;
 }
 
 .about-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    background-color: #fefefe;
 }
 
-.about-avatar {
+.about-image {
     width: 120px;
     height: 120px;
-    border-radius: 50%; /* makes it circular */
+    border-radius: 50%;
+    object-fit: cover;
     display: block;
-    margin: 0 auto 20px auto; /* center with margin below */
-    object-fit: cover; /* ensures image fits nicely */
-    border: 4px solid #fbbf24; /* optional highlight border */
+    margin: 0 auto 20px auto;
 
     /* Visual quality improvements */
     image-rendering: auto;
     filter: contrast(1.05) saturate(1.05);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    border: 3px solid #fbbf24;
 }
+
+.about-buttons {
+  display: flex;                /* use flex to control alignment */
+  justify-content: center;      /* horizontal center */
+  align-items: center;          /* vertical center */
+  gap: 0.5rem;                  /* optional spacing if you have an icon */
+  padding: 0.5rem 0.5rem;      
+  border-radius: 8px;
+  border: none;
+  background-color: #22c55e;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.about-buttons .btn-primary {
+  flex: 1;              /* buttons take equal width */
+  font-weight: 200;
+  font-size: 0.8rem;
+  min-width: 100px;
+  text-align: center;
+  text-decoration: none;    /* avoid shrinking too small */
+}
+
+.about-buttons .btn-primary:hover {
+  background-color: #16a34a;
+  transform: translateY(-2px);
+}
+
 
 /* ABOUT CARD ANIMATION */
 .about-card-animate {
@@ -120,11 +166,11 @@ p {
     transition: all 0.6s ease-out;
 }
 
-.about-card-animate.active {
+.about-card-animate.visible {
     opacity: 1;
     transform: scale(1) translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-
 
 
 .section {
@@ -157,21 +203,6 @@ p {
     border-radius: 8px;
 }
 
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    color: white;
-    background-color: #111827;
-    padding: 10px 18px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 500;
-}
-
-.btn:hover {
-    background-color: #fbbf24;
-    color: #000;
-}
 
 .nav-links a.active {
     color: #fbbf24;
@@ -180,11 +211,11 @@ p {
 }
 
 section {
-    min-height: 30vh;
-    padding: 60px 40px;
+    min-height: 20vh;
+    padding: var(--space-lg) 0;
     max-width: 1000px;
     margin: auto;
-    scroll-margin-top: 80px;
+    scroll-margin-top: calc(var(--nav-height) + 1rem);
 }
 
 section h1,
@@ -196,6 +227,7 @@ section p {
     line-height: 1.6;
     max-width: 700px;
 }
+
 
 /* PORTFOLIO PROJECTS */
 .projects-grid {
@@ -286,11 +318,6 @@ section p {
         align-items: flex-start;
     }
 
-    /* Sections padding */
-    section {
-        padding: 60px 20px;
-    }
-
     /* Project cards */
     .projects-grid {
         grid-template-columns: 1fr; /* stack cards */
@@ -313,6 +340,17 @@ section p {
     h3 {
         font-size: 1.1rem;
     }
+
+    .contact-card {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .about-card {
+    padding: 2rem 2rem;
+    aspect-ratio: auto;  /* allow card to shrink naturally */
+  }
 }
 
 /* Extra small screens (phones) */
@@ -325,7 +363,16 @@ section p {
     .portfolio-link {
         padding: 8px 14px;
     }
+
+    .contact-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .about-card {
+    padding: 2rem 2rem;
+  }
 }
+
 
 /* FOOTER */
 .footer {
@@ -360,27 +407,155 @@ section p {
     color: #ffffff;
 }
 
-/* CV DOWNLOAD BUTTONS CONTAINER */
-.cv-buttons {
-    margin-top: 20px;
-    text-align: center; /* center button in card */
+
+/* CONTACT CARD */
+.contact-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 4rem 3rem;
+  border-radius: 16px;
+  background-color: var(--footer-bg, #111827); /* same as footer */
+  color: #f9fafb; /* text on dark background */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  align-items: start;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* CV BUTTON */
-.cv-button {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #111827;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+.contact-info h2 {
+  color: #e5e7eb; /* lighter text on dark bg */
+  margin-bottom: var(--space-sm);
 }
 
-.cv-button:hover {
-    background-color: #fbbf24;
-    color: #000000;
-    transform: translateY(-2px);
+.contact-info p {
+  margin-bottom: var(--space-md);
+  color: #e5e7eb; /* lighter text on dark bg */
 }
 
+.contact-details {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-details li {
+  margin-bottom: var(--space-sm);
+  color: #e5e7eb; /* lighter text on dark bg */
+  font-size: 0.95rem;
+}
+
+.contact-details a {
+  color: #22c55e; /* accent green */
+  text-decoration: none;
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
+}
+
+.contact-form {
+  background: var(--card-bg);
+  padding: var(--space-md);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-sm);
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background-color: #1e293b;
+  color: #f9fafb;
+  border: 1px solid #334155;
+  padding: 0.75rem;
+  border-radius: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #22c55e; /* green accent */
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #94a3b8;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.contact-card-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.contact-card-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* CONTACT FORM BUTTON */
+.btn-primary {
+    display: block;               /* makes it full width */
+    width: 100%;                  /* matches input fields */
+    padding: 0.75rem 1rem;        /* comfortable click area */
+    border-radius: 8px;           /* subtle rounded corners */
+    border: none;                 /* remove default border */
+    background-color: #22c55e;    /* green background */
+    color: #ffffff;               /* white text */
+    font-weight: 200;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  background-color: #16a34a;    /* slightly darker green */
+  transform: translateY(-2px);  /* subtle lift on hover */
+}
+
+/* BUTTON STYLE FOR PORTFOLIO LINKS */
+.btn {
+  display: inline-flex;             /* allows centering and optional icon spacing */
+  justify-content: center;          /* horizontal center */
+  align-items: center;              /* vertical center */
+  gap: 0.5rem;                      /* space between text and icon if any */
+  padding: 0.75rem 1.5rem;          /* height/width of button */
+  border-radius: 8px;               /* subtle rounded corners */
+  background-color: #111827;        /* green background */
+  color: #ffffff;                    /* white text */
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;            /* remove underline for links */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hover effect */
+.btn:hover {
+  background-color: #fbbf24;       /* slightly darker green */
+  transform: translateY(-2px);     /* subtle lift on hover */
+}
+
+/* Active / click effect */
+.btn:active {
+  transform: translateY(0);
+  background-color: #fbbf24;       /* darker green */
+}

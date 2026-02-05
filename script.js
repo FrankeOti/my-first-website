@@ -24,7 +24,7 @@ window.addEventListener("scroll", () => {
 // Scroll animations
 const animatedSections = document.querySelectorAll('.section-animate');
 
-const observer = new IntersectionObserver(entries => {
+const sectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
@@ -35,7 +35,7 @@ const observer = new IntersectionObserver(entries => {
 });
 
 animatedSections.forEach(section => {
-    observer.observe(section);
+    sectionObserver.observe(section);
 });
 
 // About Me card animation
@@ -54,3 +54,52 @@ const aboutObserver = new IntersectionObserver(entries => {
 if (aboutCard) {
     aboutObserver.observe(aboutCard);
 }
+
+document.querySelector(".contact-form")
+  .addEventListener("submit", e => {
+    e.preventDefault();
+    alert("Message sent (demo)");
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const contactCard = document.querySelector(".contact-card-animate");
+
+  if (!contactCard) return; // safety check
+
+  const contactObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          contactObserver.unobserve(entry.target); // animate once
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  contactObserver.observe(contactCard);
+
+  
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+const aboutCard = document.querySelector(".about-card-animate");
+
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+
+observer.observe(aboutCard);
+
+
+  
+});
